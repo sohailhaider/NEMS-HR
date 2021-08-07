@@ -5,7 +5,7 @@ import AppHeader from "../../components/AppHeader";
 const { Content } = Layout;
 const PublicPageLayout = (props) => (
   <Layout>
-    <AppHeader />
+    <AppHeader title={props.headerTitle} />
     <Layout>
       <Content>{props.children}</Content>
     </Layout>
