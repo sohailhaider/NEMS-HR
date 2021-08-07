@@ -9,7 +9,7 @@ const { Content } = Layout;
 const DashboardLayout = (props) => {
   const isLogin = useSelector((state) => state.login.isLogin);
   return (
-    <Layout>
+    <Layout style={{ minHeight: "100vh" }}>
       {!isLogin && redirectToLogin()}
       <AppHeader title={props.headerTitle} />
       <Layout>
