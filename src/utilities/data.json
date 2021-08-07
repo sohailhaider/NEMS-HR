@@ -1,0 +1,118 @@
+{
+  "user": {
+    "unique_user_id": {
+      "userName": "String",
+      "userId": "String",
+      "emailAddress": "String",
+      "loginStatus": "Boolean",
+      "latitude" : "String",
+      "longitude" : "String",
+      "platform" : "Android/IOS",
+      "sessionHistory": [
+        {
+          "userName": "String",
+          "userId": "String",
+          "startTime": "TimeStamp",
+          "endTime": "TimeStamp",
+          "avgHeartRate": "Integer",
+          "totalCalories": "Integer",
+          "avgHrEffort": "Integer",
+          "calories": [],
+          "hrEfforts": [],
+          "hrValues": [],
+          "platform" : "Android/IOS",
+          "latitude": "String",
+          "longitude": "String"
+        },
+        {
+          "userName": "String",
+          "userId": "String",
+          "startTime": "TimeStamp",
+          "endTime": "TimeStamp",
+          "avgHeartRate": "Integer",
+          "totalCalories": "Integer",
+          "avgHrEffort": "Integer",
+          "calories": [],
+          "hrEfforts": [],
+          "hrValues": [],
+          "platform" : "Android/IOS",
+          "latitude": "String",
+          "longitude": "String"
+        }
+      ]
+    },
+    "unique_user_id_2": {
+      "userName": "String",
+      "userId": "String",
+      "emailAddress": "String",
+      "loginStatus": "Boolean",
+      "latitude" : "String",
+      "longitude" : "String",
+      "platform" : "Android/IOS",
+      "sessionHistory": [
+        {
+          "userName": "String",
+          "userId": "String",
+          "startTime": "TimeStamp",
+          "endTime": "TimeStamp",
+          "avgHeartRate": "Integer",
+          "totalCalories": "Integer",
+          "avgHrEffort": "Integer",
+          "calories": [],
+          "hrEfforts": [],
+          "hrValues": [],
+          "platform" : "Android/IOS",
+          "latitude": "String",
+          "longitude": "String"
+        },
+        {
+          "userName": "String",
+          "userId": "String",
+          "startTime": "TimeStamp",
+          "endTime": "TimeStamp",
+          "avgHeartRate": "Integer",
+          "totalCalories": "Integer",
+          "avgHrEffort": "Integer",
+          "calories": [],
+          "hrEfforts": [],
+          "hrValues": [],
+          "platform" : "Android/IOS",
+          "latitude": "String",
+          "longitude": "String"
+        }
+      ]
+    }
+  },
+  "liveSession": {
+    "unique_user_id": {
+      "userName": "String",
+      "userId": "String",
+      "startTime": "TimeStamp",
+      "endTime": "TimeStamp",
+      "avgHeartRate": "Integer",
+      "totalCalories": "Integer",
+      "avgHrEffort": "Integer",
+      "calories": [],
+      "hrEfforts": [],
+      "hrValues": [],
+      "platform" : "Android/IOS",
+      "latitude": "String",
+      "longitude": "String"
+    },
+    "unique_user_id_2": {
+      "userName": "String",
+      "userId": "String",
+      "startTime": "TimeStamp",
+      "endTime": "TimeStamp",
+      "avgHeartRate": "Integer",
+      "totalCalories": "Integer",
+      "avgHrEffort": "Integer",
+      "calories": [],
+      "hrEfforts": [],
+      "hrValues": [],
+      "platform" : "Android/IOS",
+      "latitude": "String",
+      "longitude": "String"
+    }
+  }
+}
