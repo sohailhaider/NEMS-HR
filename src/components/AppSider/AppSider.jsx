@@ -2,9 +2,9 @@ import React from "react";
 import { Layout } from "antd";
 import { Menu } from "antd";
 import {
-  PieChartOutlined,
-  DesktopOutlined,
-  ContainerOutlined,
+  DashboardOutlined,
+  LogoutOutlined,
+  UserOutlined
 } from "@ant-design/icons";
 import { Link, useLocation } from "react-router-dom";
 import _ from "lodash";
@@ -16,12 +16,12 @@ const { Sider } = Layout;
 const MENUS = [
   {
     title: "Dashboard",
-    icon: <PieChartOutlined />,
+    icon: <DashboardOutlined />,
     to: "/",
   },
   {
     title: "Users",
-    icon: <DesktopOutlined />,
+    icon: <UserOutlined />,
     to: "/users",
   },
 ];
@@ -57,7 +57,7 @@ const AppSider = (props) => {
           <Menu.Item
             onClick={handleLogout}
             key="logout"
-            icon={<ContainerOutlined />}
+            icon={<LogoutOutlined />}
           >
             Logout
           </Menu.Item>
