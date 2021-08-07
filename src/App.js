@@ -2,6 +2,7 @@ import DashboardLayout from "./pages/DashboardLayout";
 import PublicPageLayout from "./pages/PublicPageLayout";
 import { Switch, Route } from "react-router-dom";
 import DashboardPage from "./pages/DashboardPage/DashboardPage";
+import LoginPage from "./pages/LoginPage/LoginPage";
 
 function App() {
   return (
@@ -10,7 +11,9 @@ function App() {
         <DashboardLayout headerTitle="Users">Users</DashboardLayout>
       </Route>
       <Route path="/login">
-        <PublicPageLayout headerTitle="Login">Login</PublicPageLayout>
+        <PublicPageLayout headerTitle="Login">
+          <LoginPage />
+        </PublicPageLayout>
       </Route>
       <Route path="/">
         <DashboardLayout headerTitle="Dashboard">
