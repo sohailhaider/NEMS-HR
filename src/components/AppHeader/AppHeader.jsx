@@ -1,5 +1,6 @@
 import React from "react";
 import { Layout, Row, Col } from "antd";
+import PropTypes from "prop-types";
 const { Header } = Layout;
 
 const AppHeader = (props) => (
@@ -19,11 +20,11 @@ const AppHeader = (props) => (
 );
 
 AppHeader.propTypes = {
-  // bla: PropTypes.string,
+  title: PropTypes.string
 };
 
 AppHeader.defaultProps = {
-  // bla: 'test',
+  title: "Dashboard"
 };
 
 export default AppHeader;

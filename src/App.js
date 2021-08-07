@@ -12,7 +12,7 @@ function App() {
         <PublicPageLayout headerTitle="Login">Login</PublicPageLayout>
       </Route>
       <Route path="/">
-        <DashboardLayout headerTitle="Dahboard">Dashboad</DashboardLayout>
+        <DashboardLayout headerTitle="Dashboard">Dashboad</DashboardLayout>
       </Route>
     </Switch>
   );

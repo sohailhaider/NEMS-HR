@@ -6,7 +6,6 @@ import AppSider from "../../components/AppSider";
 const { Content } = Layout;
 const DashboardLayout = (props) => (
   <Layout>
-    {console.log(props.headerTitle)}
     <AppHeader title={props.headerTitle} />
     <Layout>
       <AppSider />
