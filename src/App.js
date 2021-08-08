@@ -4,6 +4,7 @@ import { Switch, Route } from "react-router-dom";
 import DashboardPage from "./pages/DashboardPage/DashboardPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import UsersPage from "./pages/UsersPage/UsersPage";
+import SessionDetailsPage from "./pages/SessionDetailsPage/SessionDetailsPage";
 
 function App() {
   return (
@@ -17,6 +18,11 @@ function App() {
         <PublicPageLayout headerTitle="Login">
           <LoginPage />
         </PublicPageLayout>
+      </Route>
+      <Route path="/session/:user_id">
+        <DashboardLayout headerTitle="Session Details">
+          <SessionDetailsPage />
+        </DashboardLayout>
       </Route>
       <Route path="/">
         <DashboardLayout headerTitle="Dashboard">

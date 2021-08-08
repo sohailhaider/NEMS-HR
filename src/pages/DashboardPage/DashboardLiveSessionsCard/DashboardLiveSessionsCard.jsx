@@ -21,18 +21,6 @@ const DashboardLiveSessionsCard = (props) => {
             <SingleLiveSessionOverviewCard {...liveSession} />
           </Col>
         );
-      })}{liveSessions.map((liveSession, index) => {
-        return (
-          <Col key={`session-overview-${index}`} span={8}>
-            <SingleLiveSessionOverviewCard {...liveSession} />
-          </Col>
-        );
-      })}{liveSessions.map((liveSession, index) => {
-        return (
-          <Col key={`session-overview-${index}`} span={8}>
-            <SingleLiveSessionOverviewCard {...liveSession} />
-          </Col>
-        );
       })}
     </Row>
   );
