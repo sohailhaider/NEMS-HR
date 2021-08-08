@@ -4,20 +4,16 @@ import React from "react";
 import GoogleMapReact from "google-map-react";
 
 const CustomGoogleMap = (props) => {
-  // const renderMarkers = (map, maps) => {
-  //   let marker = new maps.Marker({
-  //     position: {lat: 59.955413, lng: 30.337844},
-  //     map,
-  //     title: 'Hello World!'
-  //   });
-  // }
+  const onGoogleApiLoaded = (mapNMapsObj) => {
+    if (props.setMaps) props.setMaps(mapNMapsObj);
+  };
   return (
     <div style={{ height: "100vh", width: "100%" }}>
       <GoogleMapReact
         bootstrapURLKeys={{ key: process.env.REACT_APP_MAPS_KEY }}
         defaultCenter={props.center}
         defaultZoom={props.zoom}
-        // onGoogleApiLoaded={({map, maps}) => renderMarkers(map, maps)}
+        onGoogleApiLoaded={onGoogleApiLoaded}
       >
         {props.children}
         {/* <AnyReactComponent lat={59.955413} lng={30.337844} text="My Marker" /> */}
