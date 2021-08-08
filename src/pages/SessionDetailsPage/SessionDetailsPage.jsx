@@ -15,14 +15,15 @@ import { useLocation } from "react-router-dom";
 const SessionDetailsPage = (props) => {
   const { user_id } = useParams();
   let location = useLocation();
+  const searchParam = location.search;
   const [liveSessions, setLiveSessions] = React.useState([]);
   const [currentSession, setCurrentSession] = React.useState(null);
-  const [currentUser, setCurrentUser] = React.useState(null);
+  // const [currentUser, setCurrentUser] = React.useState(null);
   const [allUsers, setAllUsers] = React.useState([]);
 
   //doing this so that this component could be used independently
   React.useEffect(() => {
-    if (location.search.includes("v=")) {
+    if (searchParam.includes("v=")) {
       fetchUsers().then((_allUsers) => {
         setAllUsers(_allUsers);
       });
@@ -31,27 +32,26 @@ const SessionDetailsPage = (props) => {
         setLiveSessions(_liveSessions);
       });
     }
-  }, []);
+  });
   React.useEffect(() => {
     const fetchedSession = _.find(liveSessions, { data: { userId: user_id } });
     if (fetchedSession && !_.isEqual(currentSession, fetchedSession)) {
       setCurrentSession(fetchedSession);
     }
-  }, [liveSessions]);
+  }, [liveSessions, user_id, currentSession]);
 
   React.useEffect(() => {
     const fetchedUser = _.find(allUsers, { data: { userId: user_id } });
-    if (fetchedUser && !_.isEqual(currentUser, fetchedUser)) {
-      const sesisonIndex = location.search.split("=")[1];
+    if (fetchedUser) {
+      const sesisonIndex = searchParam.split("=")[1];
       setCurrentSession({
         data: {
           ...fetchedUser.data.sessionHistory[Number(sesisonIndex)],
           ...fetchUsers.data,
         },
       });
-      // console.log(fetchedUser.data.sessionHistory[Number(sesisonIndex)], Number(sesisonIndex));
     }
-  }, [allUsers]);
+  }, [allUsers, searchParam, user_id]);
 
   return (
     <div className="SessionDetailsPageWrapper">

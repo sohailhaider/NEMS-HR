@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 import { Card, Descriptions } from "antd";
 import { Link } from "react-router-dom";
 import moment from "moment";

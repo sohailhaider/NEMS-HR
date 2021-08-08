@@ -27,7 +27,7 @@ const UserDetailsPage = (props) => {
       setCurrentUser(fetchedUser);
     }
     if (fetchedUser) calculateAverages(fetchedUser);
-  }, [allUsers]);
+  }, [allUsers, currentUser, user_id]);
 
   const calculateAverages = (userData) => {
     const total = userData.data.sessionHistory.length;
@@ -36,7 +36,7 @@ const UserDetailsPage = (props) => {
         sumHrEffort = 0,
         sumCal = 0,
         sumDuration = 0;
-      userData.data.sessionHistory.map((session) => {
+      userData.data.sessionHistory.forEach((session) => {
         sumHR += session.avgHeartRate;
         sumHrEffort += session.avgHrEffort;
         sumCal += session.totalCalories;
@@ -152,7 +152,9 @@ const UserDetailsPage = (props) => {
 
           <Row style={{ margin: "10px" }}>
             <Col span={24}>
-              <UserSessionsOverviewCard sessions={currentUser.data.sessionHistory} />
+              <UserSessionsOverviewCard
+                sessions={currentUser.data.sessionHistory}
+              />
             </Col>
           </Row>
         </span>
