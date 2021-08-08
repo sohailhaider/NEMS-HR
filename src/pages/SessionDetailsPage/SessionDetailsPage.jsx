@@ -11,6 +11,7 @@ import {
 } from "../../utilities/services/firebase";
 import moment from "moment";
 import { useLocation } from "react-router-dom";
+import HrValuesChart from "./HrValuesChart";
 
 const SessionDetailsPage = (props) => {
   const { user_id } = useParams();
@@ -32,7 +33,7 @@ const SessionDetailsPage = (props) => {
         setLiveSessions(_liveSessions);
       });
     }
-  });
+  }, [searchParam]);
   React.useEffect(() => {
     const fetchedSession = _.find(liveSessions, { data: { userId: user_id } });
     if (fetchedSession && !_.isEqual(currentSession, fetchedSession)) {
@@ -41,16 +42,19 @@ const SessionDetailsPage = (props) => {
   }, [liveSessions, user_id, currentSession]);
 
   React.useEffect(() => {
-    const fetchedUser = _.find(allUsers, { data: { userId: user_id } });
-    if (fetchedUser) {
-      const sesisonIndex = searchParam.split("=")[1];
-      setCurrentSession({
-        data: {
-          ...fetchedUser.data.sessionHistory[Number(sesisonIndex)],
-          ...fetchUsers.data,
-        },
-      });
+    if (searchParam.includes("v=")) {
+      const fetchedUser = _.find(allUsers, { data: { userId: user_id } });
+      if (fetchedUser) {
+        const sesisonIndex = searchParam.split("=")[1];
+        setCurrentSession({
+          data: {
+            ...fetchedUser.data.sessionHistory[Number(sesisonIndex)],
+            ...fetchUsers.data,
+          },
+        });
+      }
     }
+    
   }, [allUsers, searchParam, user_id]);
 
   return (
@@ -159,7 +163,19 @@ const SessionDetailsPage = (props) => {
 
           <Row>
             <Col span={1}></Col>
-            <Col span={20}>charts</Col>
+            <Col span={22}>
+              <Row>
+                <Col span={8}>
+                  <HrValuesChart values={currentSession.data.hrValues} title="HR Values" />
+                </Col>
+                <Col span={8} style={{paddingLeft: "10px"}}>
+                  <HrValuesChart values={currentSession.data.hrEfforts} title="HR Efforts" />
+                </Col>
+                <Col span={8} style={{paddingLeft: "10px"}}>
+                  <HrValuesChart values={currentSession.data.calories} title="Calories" />
+                </Col>
+              </Row>
+            </Col>
           </Row>
         </span>
       )}
