@@ -7,6 +7,7 @@ import { useParams } from "react-router";
 import { Card, Descriptions } from "antd";
 import _ from "lodash";
 import moment from "moment";
+import UserSessionsOverviewCard from "./UserSessionsOverviewCard/UserSessionsOverviewCard";
 //import { Test } from './UserDetailsPage.styles';
 
 const UserDetailsPage = (props) => {
@@ -31,12 +32,6 @@ const UserDetailsPage = (props) => {
   const calculateAverages = (userData) => {
     const total = userData.data.sessionHistory.length;
     if (total > 0) {
-      // setAverages({
-      //   avrHR: 0,
-      //   avgHrEffort: 0,
-      //   avrCal: 0,
-      //   avrDuration: 0,
-      // });
       let sumHR = 0,
         sumHrEffort = 0,
         sumCal = 0,
@@ -144,7 +139,8 @@ const UserDetailsPage = (props) => {
                           {averages.avrCal}
                         </Descriptions.Item>
                         <Descriptions.Item label="Average Total Duration">
-                          {Number.parseFloat(averages.avrDuration).toFixed(1)} Minutes
+                          {Number.parseFloat(averages.avrDuration).toFixed(1)}{" "}
+                          Minutes
                         </Descriptions.Item>
                       </Descriptions>
                     </Card>
@@ -152,6 +148,12 @@ const UserDetailsPage = (props) => {
                 </Row>
               </Col>
             )}
+          </Row>
+
+          <Row style={{ margin: "10px" }}>
+            <Col span={24}>
+              <UserSessionsOverviewCard sessions={currentUser.data.sessionHistory} />
+            </Col>
           </Row>
         </span>
       )}
