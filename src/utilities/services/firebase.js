@@ -19,8 +19,12 @@ export const fetchLiveSession = async () => {
 
 export const fetchUsers = async () => {
   const users = await firestore.collection("users").get();
+  const dataObjs = [];
   users.forEach((doc) => {
-    console.log(doc.id, "=>", doc.data());
+    dataObjs.push({
+      id: doc.id,
+      data: doc.data(),
+    });
   });
-  return users;
+  return dataObjs;
 };

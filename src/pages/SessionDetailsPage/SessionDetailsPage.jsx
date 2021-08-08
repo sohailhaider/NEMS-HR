@@ -33,9 +33,11 @@ const SessionDetailsPage = (props) => {
         <Col span={24}>
           <PageHeader
             className="site-page-header"
-            title="Session Details"
+            title={
+              currentSession ? `Session Details of ${currentSession.data.userName }`: "Loading Session Details"
+            }
             align="middle"
-            subTitle="A Live Session Details"
+            subTitle="Session Details"
             onBack={redirectBack}
           />
         </Col>
@@ -129,9 +131,7 @@ const SessionDetailsPage = (props) => {
 
           <Row>
             <Col span={1}></Col>
-            <Col span={20}>
-              charts
-            </Col>
+            <Col span={20}>charts</Col>
           </Row>
         </span>
       )}

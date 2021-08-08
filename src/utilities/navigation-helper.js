@@ -15,6 +15,10 @@ export const redirectToSessionDetails = (userId) => {
   return history.push(`/session/${userId}`)
 }
 
+export const redirectToUserDetails = (userId) => {
+  return history.push(`/user/${userId}`)
+}
+
 export const redirectBack = () => {
   return history.goBack();
 }

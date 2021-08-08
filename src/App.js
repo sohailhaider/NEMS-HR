@@ -5,6 +5,7 @@ import DashboardPage from "./pages/DashboardPage/DashboardPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import UsersPage from "./pages/UsersPage/UsersPage";
 import SessionDetailsPage from "./pages/SessionDetailsPage/SessionDetailsPage";
+import UserDetailsPage from "./pages/UserDetailsPage/UserDetailsPage";
 
 function App() {
   return (
@@ -22,6 +23,11 @@ function App() {
       <Route path="/session/:user_id">
         <DashboardLayout headerTitle="Session Details">
           <SessionDetailsPage />
+        </DashboardLayout>
+      </Route>
+      <Route path="/user/:user_id">
+        <DashboardLayout headerTitle="User Details">
+          <UserDetailsPage />
         </DashboardLayout>
       </Route>
       <Route path="/">
