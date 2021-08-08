@@ -29,7 +29,6 @@ const UserDetailsPage = (props) => {
   }, [allUsers]);
 
   const calculateAverages = (userData) => {
-    console.log(userData);
     const total = userData.data.sessionHistory.length;
     if (total > 0) {
       // setAverages({
