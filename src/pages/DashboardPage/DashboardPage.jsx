@@ -3,6 +3,7 @@ import DashboardMapCard from "./DashboardMapCard";
 import { Row, Col, PageHeader } from "antd";
 import CustomCard from "../../components/CustomCard/CustomCard";
 import DashboardLiveSessionsCard from "./DashboardLiveSessionsCard/DashboardLiveSessionsCard";
+import DashboardUserStatisticsCard from "./DashboardUserStatisticsCard/DashboardUserStatisticsCard";
 // import PropTypes from "prop-types";
 //import { Test } from './DashboardPage.styles';
 
@@ -24,7 +25,9 @@ const DashboardPage = (props) => {
         <DashboardMapCard />
       </CustomCard>
 
-      <CustomCard title="USER STATISTICS">asdf</CustomCard>
+      <CustomCard title="USER STATISTICS">
+        <DashboardUserStatisticsCard />
+      </CustomCard>
       <CustomCard title="LIVE SESSION">
         <DashboardLiveSessionsCard />
       </CustomCard>

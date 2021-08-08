@@ -115,10 +115,10 @@ const SessionDetailsPage = (props) => {
                         {currentSession.data.avgHeartRate}
                       </Descriptions.Item>
                       <Descriptions.Item label="Average HR Effort">
-                        {currentSession.data.avgHrEffort} %
+                        {currentSession.data.avgHrEffort}%
                       </Descriptions.Item>
                       <Descriptions.Item label="Total Calories">
-                        {currentSession.data.totalCalories}
+                        {currentSession.data.totalCalories} KCal
                       </Descriptions.Item>
                       <Descriptions.Item label="Duration">
                         {currentSession.data.startTime &&

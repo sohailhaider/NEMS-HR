@@ -17,10 +17,10 @@ const SingleLiveSessionOverviewCard = ({ id, data }) => (
           {data.avgHeartRate}
         </Descriptions.Item>
         <Descriptions.Item label="Average HR Effort">
-          {data.avgHrEffort} %
+          {data.avgHrEffort}%
         </Descriptions.Item>
         <Descriptions.Item label="Total Calories">
-          {data.totalCalories}
+          {data.totalCalories} KCal
         </Descriptions.Item>
       </Descriptions>
     </Row>
