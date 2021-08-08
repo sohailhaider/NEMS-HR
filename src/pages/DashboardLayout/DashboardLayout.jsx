@@ -11,11 +11,15 @@ const DashboardLayout = (props) => {
   return (
     <Layout style={{ minHeight: "100vh" }}>
       {!isLogin && redirectToLogin()}
-      <AppHeader title={props.headerTitle} />
-      <Layout>
-        <AppSider />
-        <Content>{props.children}</Content>
-      </Layout>
+      {isLogin && (
+        <div>
+          <AppHeader title={props.headerTitle} />
+          <Layout>
+            <AppSider />
+            <Content>{props.children}</Content>
+          </Layout>
+        </div>
+      )}
     </Layout>
   );
 };
