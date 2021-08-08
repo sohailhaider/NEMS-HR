@@ -23,7 +23,6 @@ const UserDetailsPage = (props) => {
   React.useEffect(() => {
     const fetchedUser = _.find(allUsers, { data: { userId: user_id } });
     if (fetchedUser && !_.isEqual(currentUser, fetchedUser)) {
-      console.log(fetchedUser);
       setCurrentUser(fetchedUser);
     }
     if (fetchedUser) calculateAverages(fetchedUser);

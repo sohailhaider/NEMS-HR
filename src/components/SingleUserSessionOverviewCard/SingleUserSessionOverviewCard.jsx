@@ -7,7 +7,6 @@ import moment from "moment";
 
 const SingleUserSessionOverviewCard = (props) => (
   <Card>
-    {console.log(props)}
     <Descriptions column={3}>
       <Descriptions.Item label="Session Date">
         {moment.unix(props.startTime).format("Do MMMM")}

@@ -15,7 +15,6 @@ const DashboardMapCard = (props) => {
     if (mapsObj && liveSessions) {
       const bounds = new mapsObj.maps.LatLngBounds();
       liveSessions.forEach((liveSession) => {
-        console.log("adding in bound", liveSession.data.userName);
         bounds.extend(
           new mapsObj.maps.LatLng(
             liveSession.data.latitude,
@@ -23,7 +22,6 @@ const DashboardMapCard = (props) => {
           )
         );
       });
-      console.log("Bounds", bounds);
       mapsObj.map.fitBounds(bounds);
     }
   };

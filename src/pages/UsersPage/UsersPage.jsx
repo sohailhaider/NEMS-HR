@@ -10,7 +10,6 @@ const UsersPage = (props) => {
   const [allUsers, setAllUsers] = React.useState([]);
   React.useEffect(() => {
     fetchUsers().then((_allUsers) => {
-      console.log(_allUsers);
       setAllUsers(_allUsers);
     });
   }, []);

@@ -42,7 +42,6 @@ const DashboardUserStatisticsCard = (props) => {
   };
   React.useEffect(() => {
     fetchLiveSession().then((_liveSessions) => {
-      console.log("in statistics", _liveSessions);
       if (_.isEmpty(data)) setData(shapeDataForColumnChart(_liveSessions));
     });
   },[data]);
