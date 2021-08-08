@@ -8,7 +8,6 @@ const DashboardMapCard = (props) => {
   const [mapsObj, setMapsObj] = useState(null);
   useEffect(() => {
     fetchLiveSession().then((_liveSessions) => {
-      console.log("live sessions", _liveSessions);
       setLiveSessions(_liveSessions);
     });
   }, []);
