@@ -1,55 +1,30 @@
-import React, { useState, useEffect } from "react";
-import CustomGoogleMap from "../../components/CustomGoogleMap/CustomGoogleMap";
+import React from "react";
+import DashboardMapCard from "./DashboardMapCard";
+import { Row, Col, Divider, PageHeader } from "antd";
+import CustomCard from "../../components/CustomCard/CustomCard";
 // import PropTypes from "prop-types";
 //import { Test } from './DashboardPage.styles';
-import { fetchLiveSession } from "../../utilities/services/firebase";
-import MapMarker from "../../components/MapMarker/MapMarker";
-import { fitBounds } from "google-map-react";
 
 const DashboardPage = (props) => {
-  const [liveSessions, setLiveSessions] = useState([]);
-  const [mapsObj, setMapsObj] = useState(null);
-  useEffect(() => {
-    fetchLiveSession().then((_liveSessions) => {
-      console.log("live sessions", _liveSessions);
-      setLiveSessions(_liveSessions);
-    });
-  }, []);
-  const setBound = (mapsObj, liveSessions) => {
-    if (mapsObj && liveSessions) {
-      const bounds = new mapsObj.maps.LatLngBounds();
-      liveSessions.forEach((liveSession) => {
-        console.log("adding in bound", liveSession.data.userName)
-        bounds.extend(
-          new mapsObj.maps.LatLng(
-            liveSession.data.latitude,
-            liveSession.data.longitude
-          )
-        );
-      });
-      console.log("Bounds", bounds);
-      mapsObj.map.fitBounds(bounds);
-    }
-  };
-  useEffect(() => {
-    setBound(mapsObj, liveSessions);
-  }, [mapsObj, liveSessions]);
   return (
     <div className="DashboardPageWrapper">
-      Dashboard
-      <hr />
-      <CustomGoogleMap setMaps={setMapsObj}>
-        {liveSessions.map((liveSession, index) => {
-          return (
-            <MapMarker
-              key={`marker-${index}`}
-              lat={liveSession.data.latitude}
-              lng={liveSession.data.longitude}
-              title={liveSession.data.userName}
-            />
-          );
-        })}
-      </CustomGoogleMap>
+      <Row>
+        <Col span={24}>
+          <PageHeader
+            className="site-page-header"
+            title="Dashboard"
+            align="middle"
+            subTitle="A Dashboard to view active sesions and information"
+          />
+        </Col>
+      </Row>
+
+      <CustomCard title="GEO LOCATIONS">
+        <DashboardMapCard />
+      </CustomCard>
+
+      <CustomCard title="USER STATISTICS">asdf</CustomCard>
+      <CustomCard title="LIVE SESSION"></CustomCard>
     </div>
   );
 };
