@@ -3,6 +3,7 @@ import { Column } from "@ant-design/charts";
 // import PropTypes from "prop-types";
 //import { Test } from './DashboardUserStatisticsCard.styles';
 import { fetchLiveSession } from "../../../utilities/services/firebase";
+import _ from "lodash";
 
 const DashboardUserStatisticsCard = (props) => {
   const [data, setData] = React.useState([]);
@@ -37,13 +38,12 @@ const DashboardUserStatisticsCard = (props) => {
         value: liveSession.data.totalCalories,
       });
     });
-    console.log(chartData);
     return chartData;
   };
   React.useEffect(() => {
     fetchLiveSession().then((_liveSessions) => {
-      console.log("in statistics", _liveSessions);
-      setData(shapeDataForColumnChart(_liveSessions));
+      // console.log("in statistics", _liveSessions);
+      if (_.isEmpty(data)) setData(shapeDataForColumnChart(_liveSessions));
     });
   });
   return (
