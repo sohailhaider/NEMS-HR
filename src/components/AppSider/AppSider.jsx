@@ -44,7 +44,7 @@ const AppSider = (props) => {
   }, [location.pathname, selectedKeys]);
 
   return (
-    <Sider className="AppSiderWrapper">
+    <Sider className="AppSiderWrapper" style={{height: "91vh"}}>
       <div>
         <Menu selectedKeys={selectedKeys} mode="inline" theme="dark">
           {MENUS.map((menu, index) => {
